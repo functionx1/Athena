@@ -1,0 +1,1084 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+ 
+using namespace std;
+ 
+main()
+{
+      loopyeni:
+cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;      
+cout<<"   AAAAAA  LL       GGGGG     OOOOOO    RRRRR    ii TTTTTTTTTT MM       MM  AAAAAA  "<<endl;
+cout<<"  AA    AA LL      GG   GG   OO    OO  RR   RR          TT     MMMM   MMMM AA    AA "<<endl;
+cout<<"  AA    AA LL     GG        OO      OO RR    RR  ii     TT     MM MM MM MM AA    AA "<<endl;
+cout<<"  AA    AA LL     GG        OO      OO RR   RR   ii     TT     MM  MMM  MM AA    AA "<<endl;
+cout<<"  AAAAAAAA LL     GG  GGGG  OO      OO RRRRR     ii     TT     MM   M   MM AAAAAAAA "<<endl;
+cout<<"  AA    AA LL     GG     GG OO      OO RR  RR    ii     TT     MM       MM AA    AA "<<endl;
+cout<<"  AA    AA LL      GG   GG   OO    OO  RR   RR   ii     TT     MM       MM AA    AA "<<endl;
+cout<<"  AA    AA LLLLLLL  GGGGG     OOOOOO   RR    RR  ii     TT     MM       MM AA    AA "<<endl;
+ 
+cout<<endl<<endl<<endl;
+ 
+cout<<"     SSSSS    OOOOOO   FFFFFFF TTTTTTTTTT WW       WW   AAAAAA   RRRRR   EEEEEEEE   "<<endl;
+cout<<"    SS       OO    OO  FF          TT     WW       WW  AA    AA RR   RR  EE         "<<endl;
+cout<<"     SS     OO      OO FF          TT     WW       WW  AA    AA RR    RR EE         "<<endl;
+cout<<"      SSS   OO      OO FFFFFF      TT     WW   W   WW  AA    AA RR   RR  EEEEEE     "<<endl;
+cout<<"        SS  OO      OO FFFFFF      TT     WW WWWWW WW  AAAAAAAA RRRRR    EEEEEE     "<<endl;
+cout<<"         SS OO      OO FF          TT     WW WW WW WW  AA    AA RR  RR   EE         "<<endl;
+cout<<"        SS   OO    OO  FF          TT     WWWW   WWWW  AA    AA RR   RR  EE         "<<endl;
+cout<<"    SSSSS     OOOOOO   FF          TT      WW     WW   AA    AA RR    RR EEEEEEEE   "<<endl;
+ 
+cout<<endl<<endl<<endl;
+  
+cout<<"\n\n\nBu program bir sayi tahmin etme oyunudur..!"<<endl<<endl;
+cout<<"Devam etmek icin enter'e basiniz...!";
+cin.get();
+ 
+system("cls");
+ 
+char secim;
+int x;
+int maxrand;
+int hak;//kalan can..
+int tahmin;
+ 
+loopana:
+  system("cls");      
+cout<<"-------------------------------------------------------------------------"<<endl;
+cout<<"              ** Algoritma__Software **               " << endl;
+cout<<"-------------------------------------------------------------------------"<<endl; 
+cout<<"                  *** Tahminci ***                 "<<endl;
+cout<<"-------------------------------------------------------------------------"<<endl;
+cout<<"Lutfen oynamak istediginiz zorluk seviyesini seciniz.."<<endl;
+cout<<"-------------------------------------------------------------------------"<<endl;  
+cout<<"(a)Cok kolay  ---> Sayi 0 ile 20 arasinda bir tam sayi.."<<endl;
+cout<<"(b)Kolay      ---> Sayi 0 ile 40 arasinda bir tam sayi.."<<endl;
+cout<<"(c)Normal     ---> Sayi 0 ile 60 arasinda bir tam sayi.."<<endl;
+cout<<"(d)Zor        ---> Sayi 0 ile 80 arasinda bir tam sayi.."<<endl;
+cout<<"(e)Cok zor    ---> sayi 0 ile 100 arasinda bir tam sayi.."<<endl<<endl;
+cout<<"secim: "; cin>> secim;
+ 
+     
+ 
+ if((secim=='a')||(secim=='a'))
+  {
+    maxrand=20;                           
+  }
+ else if((secim=='b')||(secim=='B'))
+  {
+    maxrand=40;    
+  }
+ else if((secim=='c')||(secim=='C'))
+  {
+    maxrand=60;    
+  }
+ else if((secim=='d')||(secim=='D'))
+  {
+    maxrand=80;
+    srand((unsigned)time( NULL )); 
+    x=(rand()+20)%80;
+    hak=8;
+    goto loop;
+  } 
+ else if((secim=='e')||(secim=='E'))
+  {
+    maxrand=100; 
+    srand((unsigned)time( NULL )); 
+    x=(rand()+40)%100;
+    hak=8;
+    goto loop;
+  }
+   
+  else
+  {
+    cout<<"Gecersiz secim..!"<<endl<<endl;
+    system("cls");goto loopana;                 
+  } 
+     
+  srand((unsigned)time( NULL ));
+  x = rand() % maxrand; //cout<<endl<<x<<endl;
+   
+  hak=8;
+   
+  loop:   
+  cout<<"-------------------------------------------------------------------------"<<endl;
+  hak--;  
+  //cout<<x<<endl; 
+  cout<<"Tahminini yap:                               kalan hakkiniz: "<<hak<<endl;
+  cin>>tahmin;
+   
+   if( hak < 2 )
+    {
+         if (tahmin==x)
+          {
+            goto loopdogru;             
+          }
+        cout<<"-------------------------------------------------------------------------"<<endl;
+        cout<<"Hakkin doldu, kaybettin..!"<<endl;
+        hak=0;
+      goto loopson;
+    } 
+    
+   if (( tahmin > maxrand )||( tahmin < 0))
+    {
+      cout<<"Gecersiz bir tahmin yaptin..!Tahminin en buyuk " <<maxrand <<", en kucuk 0 olmali..!"<<endl<<endl;
+      cin.get();
+      goto loop;    
+    }
+     
+  else if(tahmin==x)
+    {
+     loopdogru: cout<<"\nTebrikler, Kazandin..!"<<endl<<endl; 
+      goto loopson;              
+    }
+  
+   
+       
+   else if( x < tahmin )
+    {
+      cout<<"Biraz kucult tahminini..!"<<endl<<endl;  
+      goto loop;               
+    }
+     
+   else if( x > tahmin)
+    {
+      cout<<"Biraz buyult tahminini..!"<<endl<<endl;    
+      goto loop;
+    } 
+     
+     
+cout<<"-------------------------------------------------------------------------"<<endl;
+ 
+   loopson:
+      int puan;
+      puan=maxrand*hak;
+      cout<<"Puaniniz : "<<puan<<endl;
+cout<<"-------------------------------------------------------------------------"<<endl;        
+      cout<<"Tekrar oynamak istermisin? (E/H) "<<endl;
+      char yanit;
+      cin>>yanit;     
+       
+      if((yanit=='e')||(yanit=='E'))
+       {
+         goto loopana;                             
+       }
+cout<<"-------------------------------------------------------------------------"<<endl;  
+    cout<<"\nOyunu oynadiginiz icin tesekkurler..!"<<endl;
+    cout<<"Gorus ve oneriler icin iletisim adresi : lordvoldemort16@mynet.com"<<endl;  
+cout<<"-------------------------------------------------------------------------"<<endl; 
+ 
+     
+   system("pause"); 
+}//ana fonksiyon sonu..
+ 
+ 
+ender yılmaz
+lordvoldemort16@mynet.com
+public class Cell {
+
+    final static int CELL_TYPE_EMPTY = 0, CELL_TYPE_FOOD = 10, CELL_TYPE_SNAKE_NODE = 20;
+    final int row, col;
+    int type;
+
+    public Cell(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+}
+
+public class Board {
+
+    final int ROW_COUNT, COL_COUNT;
+    Cell[][] cells;
+
+    public Board(int rowCount, int columnCount) {
+        ROW_COUNT = rowCount;
+        COL_COUNT = columnCount;
+
+        cells = new Cell[ROW_COUNT][COL_COUNT];
+        for (int row = 0; row < ROW_COUNT; row++) {
+            for (int column = 0; column < COL_COUNT; column++) {
+                cells[row][column] = new Cell(row, column);
+            }
+        }
+    }
+
+    public void generateFood() {
+        int row = (int) (Math.random() * ROW_COUNT);
+        int column = (int) (Math.random() * COL_COUNT);
+
+        cells[row][column].type = Cell.CELL_TYPE_FOOD;
+    }
+}
+public class Snake {
+
+    LinkedList<Cell> snakePartList = new LinkedList<>();
+    Cell head;
+
+    public Snake(Cell initPos) {
+        head = initPos;
+        snakePartList.add(head);
+    }
+
+    public void grow() {
+        snakePartList.add(head);
+    }
+
+    public void move(Cell nextCell) {
+        Cell tail = snakePartList.removeLast();
+        tail.type = Cell.CELL_TYPE_EMPTY;
+
+        head = nextCell;
+        snakePartList.addFirst(head);
+    }
+
+    public boolean checkCrash(Cell nextCell) {
+        for (Cell cell : snakePartList) {
+            if (cell == nextCell) {
+                return true;
+            }
+        }
+public class Router {
+
+    public static final int DIRECTION_NONE = 0, DIRECTION_RIGHT = 1, DIRECTION_LEFT = -1, DIRECTION_UP = 2, DIRECTION_DOWN = -2;
+    private Snake snake;
+    private Board board;
+    private int direction;
+    private boolean gameOver;
+
+    public Router(Snake snake, Board board) {
+        this.snake = snake;
+        this.board = board;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public void update() {
+        if (!gameOver) {
+            if (direction != DIRECTION_NONE) {
+                Cell nextCell = getNextCell(snake.head);
+
+                if (snake.checkCrash(nextCell)) {
+                    setDirection(DIRECTION_NONE);
+                    gameOver = true;
+                } else {
+                    snake.move(nextCell);
+                    if (nextCell.type == Cell.CELL_TYPE_FOOD) {
+                        snake.grow();
+                        board.generateFood();
+                    }
+                }
+            }
+        }
+    }
+
+    private Cell getNextCell(Cell currentPosition) {
+        int row = currentPosition.row;
+        int col = currentPosition.col;
+
+        if (direction == DIRECTION_RIGHT) {
+            col++;
+        } else if (direction == DIRECTION_LEFT) {
+            col--;
+        } else if (direction == DIRECTION_UP) {
+            row--;
+        } else if (direction == DIRECTION_DOWN) {
+            row++;
+        }
+
+        Cell nextCell = board.cells[row][col];
+
+        return nextCell;
+    }
+}
+
+        return false;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    border: 1px solid white;
+  }
+  </style>
+</head>
+<body>
+<canvas width="400" height="400" id="game"></canvas>
+<script>
+var canvas = document.getElementById('game');
+var context = canvas.getContext('2d');
+var grid = 16;
+var count = 0;
+  
+var snake = {
+  x: 160,
+  y: 160,
+  
+  // snake velocity. moves one grid length every frame in either the x or y direction
+  dx: grid,
+  dy: 0,
+  
+  // keep track of all grids the snake body occupies
+  cells: [],
+  
+  // length of the snake. grows when eating an apple
+  maxCells: 4
+};
+var apple = {
+  x: 320,
+  y: 320
+};
+// get random whole numbers in a specific range
+// @see https://stackoverflow.com/a/1527820/2124254
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+// game loop
+function loop() {
+  requestAnimationFrame(loop);
+  // slow game loop to 15 fps instead of 60 (60/15 = 4)
+  if (++count < 4) {
+    return;
+  }
+  count = 0;
+  context.clearRect(0,0,canvas.width,canvas.height);
+  // move snake by it's velocity
+  snake.x += snake.dx;
+  snake.y += snake.dy;
+  // wrap snake position horizontally on edge of screen
+  if (snake.x < 0) {
+    snake.x = canvas.width - grid;
+  }
+  else if (snake.x >= canvas.width) {
+    snake.x = 0;
+  }
+  
+  // wrap snake position vertically on edge of screen
+  if (snake.y < 0) {
+    snake.y = canvas.height - grid;
+  }
+  else if (snake.y >= canvas.height) {
+    snake.y = 0;
+  }
+  // keep track of where snake has been. front of the array is always the head
+  snake.cells.unshift({x: snake.x, y: snake.y});
+  // remove cells as we move away from them
+  if (snake.cells.length > snake.maxCells) {
+    snake.cells.pop();
+  }
+  // draw apple
+  context.fillStyle = 'red';
+  context.fillRect(apple.x, apple.y, grid-1, grid-1);
+  // draw snake one cell at a time
+  context.fillStyle = 'green';
+  snake.cells.forEach(function(cell, index) {
+    
+    // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
+    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+    // snake ate apple
+    if (cell.x === apple.x && cell.y === apple.y) {
+      snake.maxCells++;
+      // canvas is 400x400 which is 25x25 grids 
+      apple.x = getRandomInt(0, 25) * grid;
+      apple.y = getRandomInt(0, 25) * grid;
+    }
+    // check collision with all cells after this one (modified bubble sort)
+    for (var i = index + 1; i < snake.cells.length; i++) {
+      
+      // snake occupies same space as a body part. reset game
+      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+        snake.x = 160;
+        snake.y = 160;
+        snake.cells = [];
+        snake.maxCells = 4;
+        snake.dx = grid;
+        snake.dy = 0;
+        apple.x = getRandomInt(0, 25) * grid;
+        apple.y = getRandomInt(0, 25) * grid;
+      }
+    }
+  });
+}
+// listen to keyboard events to move the snake
+document.addEventListener('keydown', function(e) {
+  // prevent snake from backtracking on itself by checking that it's 
+  // not already moving on the same axis (pressing left while moving
+  // left won't do anything, and pressing right while moving left
+  // shouldn't let you collide with your own body)
+  
+  // left arrow key
+  if (e.which === 37 && snake.dx === 0) {
+    snake.dx = -grid;
+    snake.dy = 0;
+  }
+  // up arrow key
+  else if (e.which === 38 && snake.dy === 0) {
+    snake.dy = -grid;
+    snake.dx = 0;
+  }
+  // right arrow key
+  else if (e.which === 39 && snake.dx === 0) {
+    snake.dx = grid;
+    snake.dy = 0;
+  }
+  // down arrow key
+  else if (e.which === 40 && snake.dy === 0) {
+    snake.dy = grid;
+    snake.dx = 0;
+  }
+});
+// start the game
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+* {
+  box-sizing: border-box;
+  transition: 0.3s cubic-bezier(0.6, 0, 0.2, 1);
+}
+body {
+  transition: 0s;
+  background-color: #bbc;
+}
+.canvas-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 720px;
+  width: 720px;
+}
+#cnv {font: fantasy;font: fantasy;flex: 
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-height: 800px) {
+  .canvas-container {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+@media screen and (max-width: 900px) {
+  .canvas-container {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="canvas-container">
+    <canvas id="cnv" height="600px" width="600px"></canvas>
+</div>
+
+
+<script>
+// --- Notes ---
+// Make tetris
+// Tetris arena is 10x20
+// Canvas is 30x30
+// A bit buggy at the moment
+
+// - TO DO -
+// Create Game Over state
+// Make it look nicer
+// Fix collision issues 
+// - piece rotation between two pieces
+// - switching pieces
+
+// Very good tutorial
+// This is where most of the code comes from
+// https://www.youtube.com/watch?v=H2aW5V46khA
+// https://github.com/thedaviddias/Front-End-Design-Checklist
+
+// Interesting things
+// https://www.reddit.com/r/WritingPrompts/comments/8aec6t/wp_its_3_am_an_official_phone_alert_wakes_you_up/
+// https://www.reddit.com/r/AskReddit/comments/oc7rc/have_you_ever_felt_a_deep_personal_connection_to/c3g4ot3/
+// 
+
+// --- Setup -----------------------------------------------
+// - Canvas Context -
+var cnv = document.getElementById('cnv'), 
+    ctx = cnv.getContext('2d');
+ctx.scale(20, 20);
+
+// Color palette for the blocks
+var palettes = {
+    standard: ['#ffeb3b','#9c27b0','#ff9800','#3f51b5','#03a9f4','#4caf50','#f44336'],
+    experiment: ['#607d8b','#8bc34a','#009688','#e91e63','#ffc107','#00bcd4','#673ab7'],
+}
+var palette = palettes.standard;
+
+// Game information
+var level = 0;
+var linesCleared = 0;
+var paused = false;
+var pieceArray = ['T','O','I','L','J','S','Z'];
+
+// Arena
+var arena = {
+    // Props
+    pos: {x: 10, y: 2},
+    matrix: createMatrix(10,20),
+    // Methods
+    draw: function() {
+        drawMatrix(this.matrix, this.pos); 
+        this.drawOutline();
+    },
+    drawOutline: function() {
+        ctx.lineWidth = 0.1;
+        ctx.strokeStyle="#FFF";
+        ctx.strokeRect(this.pos.x,this.pos.y,this.matrix[0].length,this.matrix.length);
+    },
+};
+
+// Player 
+var player = {
+    // Props
+    matrix: [],
+    nextPiece: [],
+    heldPiece: randomPiece(),
+    pos: {x: 0, y: 0},
+    score: 0,
+    highscore: 0,
+    // Methods
+    collisionCheck: function(pos) {
+        var m = this.matrix, o = pos||this.pos;
+        for(var y = 0; y < m.length; ++y) {
+            for(var x = 0; x < m[y].length; ++x) {
+                if(m[y][x] !== 0 && (arena.matrix[y + o.y] && arena.matrix[y + o.y][x + o.x]) !== 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    },
+    draw: function() { 
+        drawMatrix(this.matrix, {x: this.pos.x + arena.pos.x, y: this.pos.y + arena.pos.y});
+        // Ghost piece
+        for(var y = 0; y < 20; y++) {
+            if(this.collisionCheck({x:this.pos.x, y: y}) && y >= this.pos.y){
+                drawMatrix(this.matrix, {x:this.pos.x + arena.pos.x, y: y + arena.pos.y - 1}, 'rgba(255,255,255,0.15)');
+                return false;for (var i = clength - 1; i >= 0; i--) {
+                    ci]
+                }
+            }
+        }
+    },
+    drop: function() { 
+        this.pos.y++; 
+        if(this.collisionCheck()) {
+            this.pos.y--;
+            this.merge();
+            lineCheck();
+            this.reset();
+        }
+        dropCount = 0; 
+    },
+    hardDrop: function() {
+        var count = 0;
+        while((!this.collisionCheck()) && count < 20) {
+            this.pos.y++;
+            count++;
+        }
+        this.pos.y--;
+        this.score += Math.max(count-1,0) * 2;
+        this.highscore = Math.max(this.highscore,this.score);
+        this.drop();
+    },
+    merge: function() { 
+        this.matrix.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if(value !== 0) {
+                    arena.matrix[y + this.pos.y][x + this.pos.x] = value;
+                }
+            }); 
+        });
+    },
+    reset: function() {
+        this.matrix = this.nextPiece;
+        this.nextPiece = randomPiece();
+        this.pos.y = 0;
+        this.pos.x = Math.floor(arena.matrix[0].length/2) - Math.floor(this.matrix[0].length/2);
+        
+        // Game Over check
+        if(this.collisionCheck()) { reset(); }
+    },
+    rotate: function(dir) {
+        for(var y = 0; y < this.matrix.length; ++y) {
+            for(var x = 0; x < y; ++x) {
+                [
+                    this.matrix[x][y],
+                    this.matrix[y][x],
+                ] = [
+                    this.matrix[y][x],
+                    this.matrix[x][y],
+                ];
+            }
+        }
+        
+        if(dir > 0) { this.matrix.forEach(row => row.reverse()); } 
+        else { matrix.reverse(); }
+        
+        // collision check in case we rotate into the wall/another piece
+        var pos = this.pos.x;
+        var offset = 1;
+        while(this.collisionCheck()) {
+            this.pos.x += offset;
+            offset = -(offset + (offset > 0 ? 1 : -1));
+            if(offset > this.matrix[0].length) {
+                this.rotate(-dir);
+                this.pos.x = pos;
+                return;
+            }
+        }
+    },
+    shift: function(dir) {
+        this.pos.x += dir;
+        if(this.collisionCheck()) { this.pos.x -= dir; }
+    },
+    switchPiece: function() {
+        [this.heldPiece, this.matrix] = [this.matrix, this.heldPiece];
+        
+        // collision check in case we rotate into the wall/another piece
+        var pos = this.pos.x;
+        var offset = 1;
+        while(this.collisionCheck()) {
+            this.pos.x += offset;
+            offset = -(offset + (offset > 0 ? 1 : -1));
+            if(offset > this.matrix[0].length) {
+                player.switchPiece();
+                this.pos.x = pos;
+                return;
+            }
+        }
+    },
+};
+
+// Player Piece drop timer
+var lastTime = 0;
+var dropCount = 0;
+var dropInterval = 1000;
+
+// ---------------------------------------------------------
+
+// --- Input Handling --------------------------------------
+document.addEventListener('keydown', function(e){
+    switch(e.keyCode) {
+        case 80: paused = !paused; break; // P - Pause
+        case 82: reset(); break;          // R - Reset
+    }
+    if(!paused) {
+        e.preventDefault();
+        switch(e.keyCode) {
+            case 37: player.shift(-1); break;     // Left
+            case 38: player.rotate(1); break;     // Up
+            case 39: player.shift(1); break;      // Right
+            case 40: player.drop(); break;        // Down
+            case 32: player.hardDrop(); break;    // Space
+            case 16: player.switchPiece(); break; // Shift
+            // default: console.log(e.keyCode);
+        }
+    }
+});
+// ---------------------------------------------------------
+
+// --- Functions -------------------------------------------
+function init() {
+    reset();
+    frameFunction();
+}
+function reset() { 
+    player.nextPiece = randomPiece();
+    arena.matrix.forEach(row => row.fill(0));
+    player.reset();
+    player.score = 0;
+    player.heldPiece = randomPiece();
+    dropCount = 0;
+    linesCleared = 0;
+    level = 0;
+}
+
+function frameFunction(time = 0) {
+    // Cover previous frame
+    coverFrame();
+    
+    // Timer for player piece drop
+    if(!paused) {
+        var deltaTime = time - lastTime;
+        lastTime = time;
+        dropCount += deltaTime;
+        if(dropCount > Math.max((dropInterval - (level*60)),60)) { player.drop(); }
+    }
+    
+    // Draw stuff
+    draw();
+    
+    // Next Frame
+    requestAnimationFrame(frameFunction);
+}
+
+function coverFrame() {
+    ctx.fillStyle = 'rgba(0,10,30,1)';
+    ctx.fillRect(0,0,cnv.width, cnv.height);
+}
+
+function createMatrix(w,h) {
+    var matrix = [];
+    while(h--) { matrix.push(new Array(w).fill(0)); }
+    return matrix;
+}
+
+function createPiece(type) {
+    switch(type) {
+        case 'O': 
+            return [
+                [1,1],
+                [1,1],
+            ]; break;
+        case 'T': 
+            return [
+                [0,0,0],
+                [2,2,2],
+                [0,2,0],
+            ]; break;
+        case 'L': 
+            return [
+                [0,3,0],
+                [0,3,0],
+                [0,3,3],
+            ]; break;
+        case 'J': 
+            return [
+                [0,4,0],
+                [0,4,0],
+                [4,4,0],
+            ]; break;
+        case 'I': 
+            return [
+                [0,5,0,0],
+                [0,5,0,0],
+                [0,5,0,0],
+                [0,5,0,0],
+            ]; break;
+        case 'S': 
+            return [
+                [0,6,6],
+                [6,6,0],
+                [0,0,0],
+            ]; break;
+        case 'Z': 
+            return [
+                [7,7,0],
+                [0,7,7],
+                [0,0,0],
+            ]; break;
+    }
+}
+
+function drawMatrix(matrix, offset, color) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if(value !== 0) {
+                if(color) {
+                    ctx.fillStyle = paused?'rgba(0,0,0,0)':color;
+                } else {
+                    ctx.fillStyle = paused?'rgba(255,255,255,0.2)':(palette[value - 1]||'white');    
+                };
+                ctx.strokeStyle = 'rgba(0,10,30,1)';
+                ctx.fillRect(x + offset.x,y + offset.y,1,1);
+                ctx.strokeRect(x + offset.x,y + offset.y,1,1);
+            }
+        }); 
+    });
+}
+
+function draw() {
+    player.draw();
+    arena.draw();
+    drawUI();
+}
+
+function drawUI() {    
+    ctx.fillStyle = '#FFF';
+    ctx.font = '1px monospace';
+    ctx.textAlign = 'left';
+    // Title or something
+    ctx.fillText('Tetris',3,3);
+    ctx.fillText('sort of',3,4);
+    // Instructions
+    ctx.fillText('← / → = Move Horizontally',6,25);
+    ctx.fillText('↑ = Rotate    // SHIFT = Switch',6,26);
+    ctx.fillText('↓ = Soft Drop // SPACE = Hard Drop',6,27);
+    ctx.fillText('P = Pause     // R = Reset',6,28);
+    // Highscore
+    ctx.fillText('Highscore',21,3);
+    ctx.fillText(player.highscore,21,4);
+    // Player Score
+    ctx.fillText('Player Score',21,6);
+    ctx.fillText(player.score,21,7);
+    // Level 
+    ctx.fillText('Level',21,9);
+    ctx.fillText(level,21,10);
+    // Lines
+    ctx.fillText('Lines Cleared',21,12);
+    ctx.fillText(linesCleared,21,13);
+    // Held Piece
+    ctx.fillText('Held Piece',3,15);
+    ctx.lineWidth = 0.1;
+    ctx.strokeStyle="#FFF";
+    ctx.strokeRect(3,16,6,6);
+    drawMatrix(player.heldPiece,{x:4,y:17})
+    // Next Piece
+    ctx.fillStyle = '#FFF';
+    ctx.fillText('Next Piece',21,15);
+    ctx.lineWidth = 0.1;
+    ctx.strokeStyle="#FFF";
+    ctx.strokeRect(21,16,6,6);
+    drawMatrix(player.nextPiece,{x:22,y:17})
+    // Pause Text
+    if(paused) {
+        ctx.fillStyle = '#FFF';
+        ctx.textAlign = 'center';
+        ctx.fillText('Game Paused',5 + arena.pos.x,8 + arena.pos.y);
+    }
+}
+
+function lineCheck() {
+    var rowMultiplier = 1;
+    for(var y = arena.matrix.length - 1; y > 0; y--) {
+        if(arena.matrix[y].every(function(x) {return x > 0;})) {
+            linesCleared++;
+            var row = arena.matrix.splice(y,1)[0];
+            arena.matrix.unshift(row.fill(0));
+            player.score += rowMultiplier*50;
+            player.highscore = Math.max(player.highscore,player.score);
+            rowMultiplier *= 2;
+            y++; // Because of the splicing offset
+            // Level
+            level = Math.floor(linesCleared/10);
+        }
+    }
+}
+
+function randomPiece() {
+    return (createPiece( pieceArray[Math.floor(Math.random() * pieceArray.length)] ));
+}
+// ---------------------------------------------------------
+
+init();
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+from random import randint
+
+"""
+    Küçük çapta bir çarpım tablosu uygulaması
+"""
+
+print("-" * 50)
+print("\t\tHOŞGELDİNİZ..")
+print("-" * 50, "\n")
+
+
+def carpim(i, j, r):
+    if r != "-1":
+        result = str(i * j)
+        if result == r:
+            print("\t\t***** Doğru *****")
+        else:
+            print("\t!!! Yanlış cevap %s olacaktı" % result)
+    else:
+
+        secim()
+
+
+def basla(rng_1, rng_2):
+    if rng_1 > 10:
+        x = 10
+    else:
+        x = 5
+    for i in range(0, x):
+        for j in range(0, x):
+            sayi_1 = randint(rng_1, rng_2)
+            sayi_2 = randint(rng_1, rng_2)
+            print("_" * 50, "\n")
+            print("\t%d x %d kaça eşittir? (çıkış = -1)" % (sayi_1, sayi_2))
+            sonuc = input("sonuc >> ")
+            carpim(sayi_1, sayi_2, sonuc)
+
+            if i == 4 and j == 4:
+                print("\n *-- Bu bölüm bitti bir üst bölüme geçebilsiniz --*\n")
+                secim()
+
+
+def secim():
+    print(" Hangi seviyeden başlamak istiyorsunuz (çıkış = -1) ?\n")
+    print("  1 - Kolay ")
+    print("  2 - Orta ")
+    print("  3 - Zor")
+    print("  4 - Çok zor\n")
+
+    svy = input(" >> ")
+
+    if svy == "1":
+        basla(1, 6)
+
+    elif svy == "2":
+        basla(6, 12)
+
+    elif svy == "3":
+        basla(12, 25)
+
+    elif svy == "4":
+        basla(25, 100)
+
+    else:
+        exit(0)
+
+
+if __name__ == '__main__':
+    secim()
+
+# @ozcanyarimdunya
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
